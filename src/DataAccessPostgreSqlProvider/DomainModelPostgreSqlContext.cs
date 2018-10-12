@@ -8,18 +8,20 @@ namespace DataAccessPostgreSqlProvider
     // >dotnet ef migration add testMigration in AspNet5MultipleProject
     public class DomainModelPostgreSqlContext : DbContext
     {
-        public DomainModelPostgreSqlContext(DbContextOptions<DomainModelPostgreSqlContext> options) :base(options)
+        public DomainModelPostgreSqlContext(DbContextOptions<DomainModelPostgreSqlContext> options) : base(options)
         {
         }
-        
+
         public DbSet<DataEventRecord> DataEventRecords { get; set; }
 
         public DbSet<SourceInfo> SourceInfos { get; set; }
+        public DbSet<Membership> Memberships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<DataEventRecord>().HasKey(m => m.DataEventRecordId);
             builder.Entity<SourceInfo>().HasKey(m => m.SourceInfoId);
+            builder.Entity<Membership>().HasKey(m => m.Id);
 
             // shadow properties
             builder.Entity<DataEventRecord>().Property<DateTime>("UpdatedTimestamp");
@@ -32,13 +34,13 @@ namespace DataAccessPostgreSqlProvider
         {
             ChangeTracker.DetectChanges();
 
-            updateUpdatedProperty<SourceInfo>();
-            updateUpdatedProperty<DataEventRecord>();
+            UpdateUpdatedProperty<SourceInfo>();
+            UpdateUpdatedProperty<DataEventRecord>();
 
             return base.SaveChanges();
         }
 
-        private void updateUpdatedProperty<T>() where T : class
+        private void UpdateUpdatedProperty<T>() where T : class
         {
             var modifiedSourceInfo =
                 ChangeTracker.Entries<T>()

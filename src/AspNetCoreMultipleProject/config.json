@@ -1,8 +1,8 @@
 ﻿{
   "ConnectionStrings": {
-    "DataAccessSqliteProvider": "Data Source=C:\\git\\damienbod\\AspNetCoreMultipleProject\\src\\DataAccessSqliteProvider\\dataeventrecords.sqlite",
-    "DataAccessMsSqlServerProvider": "Data Source=N051;Initial Catalog=SqlMultipleProject;Integrated Security=True;",
-    "DataAccessPostgreSqlProvider": "User ID=damienbod;Password=damienbod;Host=localhost;Port=5432;Database=damienbod;Pooling=true;",
-    "DataAccessMySqlProvider": "server=localhost;userid=damienbod;password=1234;database=nlog;"
+    //"DataAccessSqliteProvider": "Data Source=C:\\git\\damienbod\\AspNetCoreMultipleProject\\src\\DataAccessSqliteProvider\\dataeventrecords.sqlite",
+    //"DataAccessMsSqlServerProvider": "Data Source=N051;Initial Catalog=SqlMultipleProject;Integrated Security=True;",
+    "DataAccessPostgreSqlProvider": "User ID=user_web;Password=77-6B-84-37-67-75;Host=103.234.210.71;Port=5432;Database=damienbod;Pooling=true;"
+    // "DataAccessMySqlProvider": "server=localhost;userid=damienbod;password=1234;database=nlog;"
   }
 }
